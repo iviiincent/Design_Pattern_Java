@@ -1,4 +1,4 @@
-package io.github.iviiincent.exercise_02;
+package io.github.iviiincent._02_exercise;
 
 public class Main {
 
