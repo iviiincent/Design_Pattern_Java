@@ -9,12 +9,12 @@ public class TicketMaker {
     private TicketMaker() {
     }
 
-    public synchronized int getNextTicketNumber() {
-        return ticket++;
-    }
-
     public static TicketMaker getInstance() {
         return ticketMaker;
+    }
+
+    public synchronized int getNextTicketNumber() {
+        return ticket++;
     }
 
 }

@@ -4,7 +4,7 @@ import io.github.iviiincent._02_adaptor.Banner;
 
 /**
  * Adapter
- * <p> 
+ * <p>
  * Key: it has an adaptee
  * it's more flexible as it can adapt multiply adaptees
  */

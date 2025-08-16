@@ -1,7 +1,5 @@
 package io.github.iviiincent._05_exercise;
 
-import lombok.Getter;
-
 public class Triple {
 
     private static final Triple[] triples = new Triple[]{
@@ -15,14 +13,14 @@ public class Triple {
         this.id = id;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public static Triple getInstance(int id) {
         if (id < 0 || id >= 3) {
             throw new IllegalArgumentException("0 <= id <= 2 is expected.");
         }
         return triples[id];
+    }
+
+    public int getId() {
+        return id;
     }
 }

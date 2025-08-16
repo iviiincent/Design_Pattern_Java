@@ -15,7 +15,7 @@ public class StringDisplay extends AbstractDisplay {
     public void open() {
         printLine();
     }
-    
+
     @Override
     public void print() {
         System.out.println("|" + string + "|");
