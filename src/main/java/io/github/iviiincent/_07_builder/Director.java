@@ -9,20 +9,20 @@ public class Director {
     }
 
     public void construct() {
-        builder.makeTitle("Greeting");
+        builder.buildTitle("Greeting");
 
-        builder.makeString("From morning to afternoon");
-        builder.makeItem(new String[]{
+        builder.buildString("From morning to afternoon");
+        builder.buildItem(new String[]{
                 "good morning",
                 "good afternoon"
         });
 
-        builder.makeString("At night");
-        builder.makeItem(new String[]{
+        builder.buildString("At night");
+        builder.buildItem(new String[]{
                 "good night",
                 "well sleep",
                 "goodbye"
         });
-        builder.close();
+        builder.buildDone();
     }
 }

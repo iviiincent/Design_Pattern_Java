@@ -9,6 +9,8 @@ public class Main {
             director.construct();
             String result = textBuilder.getResult();
             System.out.println(result);
+
+            director.construct(); // not gonna works
         } else if (args[0].equals("html")) {
             HtmlBuilder htmlBuilder = new HtmlBuilder();
             Director director = new Director(htmlBuilder);

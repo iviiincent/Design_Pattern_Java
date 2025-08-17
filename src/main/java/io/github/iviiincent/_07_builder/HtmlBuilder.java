@@ -11,7 +11,7 @@ public class HtmlBuilder extends Builder {
     private PrintWriter writer;
 
     @Override
-    public void makeTitle(String title) {
+    public void buildTitle(String title) {
         filename = title + ".html";
         try {
             writer = new PrintWriter(new FileWriter(filename));
@@ -23,12 +23,12 @@ public class HtmlBuilder extends Builder {
     }
 
     @Override
-    public void makeString(String str) {
+    public void buildString(String str) {
         writer.println("<p>" + str + "</p>");
     }
 
     @Override
-    public void makeItem(String[] items) {
+    public void buildItem(String[] items) {
         writer.println("<ul>");
         for (String item : items) {
             writer.println("<li>" + item + "</li>");
@@ -37,7 +37,7 @@ public class HtmlBuilder extends Builder {
     }
 
     @Override
-    public void close() {
+    public void buildDone() {
         writer.println("</body></html>");
         writer.close();
     }
