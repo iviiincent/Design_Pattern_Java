@@ -2,9 +2,9 @@ package io.github.iviiincent._06_prototype;
 
 import io.github.iviiincent._06_prototype.framework.Product;
 
-public class UnderlinePen implements Product {
+public class UnderlinePen extends Product {
 
-    private char ulchar;
+    private final char ulchar;
 
     public UnderlinePen(char ulchar) {
         this.ulchar = ulchar;
@@ -21,15 +21,4 @@ public class UnderlinePen implements Product {
         System.out.println(" ");
     }
 
-    @Override
-    public Product createClone() {
-        Product product = null;
-        try {
-            product = (Product) clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
-
-        return product;
-    }
 }

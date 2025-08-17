@@ -2,7 +2,7 @@ package io.github.iviiincent._06_prototype;
 
 import io.github.iviiincent._06_prototype.framework.Product;
 
-public class MessageBox implements Product {
+public class MessageBox extends Product {
 
     private final char decochar;
 
@@ -25,17 +25,5 @@ public class MessageBox implements Product {
             System.out.print(decochar);
         }
         System.out.println();
-    }
-
-    @Override
-    public Product createClone() {
-        Product product = null;
-        try {
-            product = (Product) clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
-
-        return product;
     }
 }
