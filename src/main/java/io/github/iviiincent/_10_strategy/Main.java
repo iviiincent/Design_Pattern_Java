@@ -9,6 +9,10 @@ public class Main {
         Player alpha = new Player("Alpha", new WinningStrategy(seed1));
         Player beta = new Player("Beta", new ProbStrategy(seed2));
 
+        testGame(alpha, beta);
+    }
+
+    public static void testGame(Player alpha, Player beta) {
         for (int i = 0; i < 10000; i++) {
             Hand handA = alpha.nextHand();
             Hand handB = beta.nextHand();
