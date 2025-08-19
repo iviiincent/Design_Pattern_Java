@@ -2,6 +2,7 @@ package _13_visitor;
 
 
 import _13_visitor.file_system.Directory;
+import _13_visitor.file_system.ElementArrayList;
 import _13_visitor.file_system.File;
 
 public class Main {
@@ -36,11 +37,15 @@ public class Main {
             tomura.add(new File("junk.mail", 500));
             root.accept(new ListVisitor());
 
-            /*
-             * Test for FileFindVisitor
-             */
             System.out.println("> Starting finding .html files:");
             root.accept(new FileFindVisitor(".html"));
+
+            System.out.println("Test for ElementArrayList");
+            ElementArrayList list = new ElementArrayList();
+            list.add(hanako);
+            list.add(yuki);
+            list.add(new File("README.md", 500));
+            list.accept(new ListVisitor());
         } catch (Exception e) {
             e.printStackTrace();
         }
