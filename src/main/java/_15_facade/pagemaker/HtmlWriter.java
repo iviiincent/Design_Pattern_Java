@@ -27,7 +27,7 @@ class HtmlWriter implements Closeable {
     }
 
     public void link(String href, String caption) throws IOException {
-        writer.write("<a href=\"" + href + "\">" + caption + "</a>");
+        paragraph("<a href=\"" + href + "\">" + caption + "</a>");
     }
 
     public void mailto(String mailAddress, String username) throws IOException {
