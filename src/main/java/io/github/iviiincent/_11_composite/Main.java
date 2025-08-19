@@ -25,11 +25,18 @@ public class Main {
             usr.add(hanako);
             usr.add(tomura);
             yuki.add(new File("diary.html", 100));
-            yuki.add(new File("Composite.java", 200));
+            File composite = new File("Composite.java", 200);
+            yuki.add(composite);
             hanako.add(new File("memo.tex", 300));
             tomura.add(new File("game.doc", 400));
             tomura.add(new File("junk.mail", 500));
             root.printList();
+            System.out.println();
+
+            System.out.println(root.getPath());
+            System.out.println(usr.getPath());
+            System.out.println(yuki.getPath());
+            System.out.println(composite.getPath());
         } catch (Exception e) {
             e.printStackTrace();
         }
