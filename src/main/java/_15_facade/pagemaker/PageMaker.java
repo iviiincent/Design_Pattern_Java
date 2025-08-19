@@ -7,7 +7,6 @@ import java.util.Properties;
 public class PageMaker {
 
     private PageMaker() {
-
     }
 
     public static void makeWelcomePage(String mailAddress, String filename) {

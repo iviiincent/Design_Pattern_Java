@@ -4,7 +4,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.Writer;
 
-public class HtmlWriter implements Closeable {
+class HtmlWriter implements Closeable {
 
     private Writer writer;
 
