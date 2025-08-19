@@ -1,4 +1,4 @@
-package _13_visitor;
+package _13_visitor.visitor;
 
 import _13_visitor.file_system.Directory;
 import _13_visitor.file_system.Entry;

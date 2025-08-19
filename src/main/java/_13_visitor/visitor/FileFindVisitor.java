@@ -1,4 +1,4 @@
-package _13_visitor;
+package _13_visitor.visitor;
 
 import _13_visitor.file_system.Directory;
 import _13_visitor.file_system.Entry;
@@ -6,13 +6,19 @@ import _13_visitor.file_system.File;
 
 import java.util.Iterator;
 
-public class SizeVisitor extends Visitor {
+public class FileFindVisitor extends Visitor {
 
-    private int size = 0;
+    private final String suffix;
+
+    public FileFindVisitor(String suffix) {
+        this.suffix = suffix;
+    }
 
     @Override
     public void visit(File file) {
-        size += file.getSize();
+        if (file.getName().endsWith(suffix)) {
+            System.out.println(file);
+        }
     }
 
     @Override
@@ -22,9 +28,5 @@ public class SizeVisitor extends Visitor {
             Entry entry = iterator.next();
             entry.accept(this);
         }
-    }
-
-    public int getSize() {
-        return size;
     }
 }

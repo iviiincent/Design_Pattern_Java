@@ -4,6 +4,8 @@ package _13_visitor;
 import _13_visitor.file_system.Directory;
 import _13_visitor.file_system.ElementArrayList;
 import _13_visitor.file_system.File;
+import _13_visitor.visitor.FileFindVisitor;
+import _13_visitor.visitor.ListVisitor;
 
 public class Main {
 

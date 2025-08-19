@@ -1,7 +1,7 @@
 package _13_visitor.file_system;
 
-import _13_visitor.SizeVisitor;
-import _13_visitor.Visitor;
+import _13_visitor.visitor.SizeVisitor;
+import _13_visitor.visitor.Visitor;
 
 import java.util.ArrayList;
 import java.util.Iterator;
