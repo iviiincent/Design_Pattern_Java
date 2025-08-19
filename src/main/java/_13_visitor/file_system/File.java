@@ -10,11 +10,11 @@ public class File extends Entry {
         super(name);
         this.size = size;
     }
-    
+
     public int getSize() {
         return size;
     }
-    
+
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);

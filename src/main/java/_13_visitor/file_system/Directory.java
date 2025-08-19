@@ -1,5 +1,6 @@
 package _13_visitor.file_system;
 
+import _13_visitor.SizeVisitor;
 import _13_visitor.Visitor;
 
 import java.util.ArrayList;
@@ -16,11 +17,9 @@ public class Directory extends Entry {
 
     @Override
     public int getSize() {
-        int size = 0;
-        for (Entry entry : directory) {
-            size += entry.getSize();
-        }
-        return size;
+        SizeVisitor sizeVisitor = new SizeVisitor();
+        accept(sizeVisitor);
+        return sizeVisitor.getSize();
     }
 
     @Override
