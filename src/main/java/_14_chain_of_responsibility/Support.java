@@ -16,12 +16,17 @@ public abstract class Support {
     }
 
     public final void support(Trouble trouble) {
-        if (resolve(trouble)) {
-            done(trouble);
-        } else if (next != null) {
-            next.support(trouble);
-        } else {
-            fail(trouble);
+        Support support = this;
+        while (support != null) {
+            if (support.resolve(trouble)) {
+                support.done(trouble);
+                return;
+            }
+            if (support.next == null) {
+                support.fail(trouble);
+            }
+            
+            support = support.next;
         }
     }
 
