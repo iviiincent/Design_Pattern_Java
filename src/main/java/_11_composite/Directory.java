@@ -6,15 +6,8 @@ public class Directory extends Entry {
 
     private final ArrayList<Entry> directory = new ArrayList<>();
 
-    private String name;
-
     public Directory(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String getName() {
-        return name;
+        super(name);
     }
 
     @Override
@@ -37,7 +30,7 @@ public class Directory extends Entry {
     protected void printList(String prefix) {
         System.out.println(prefix + "/" + this);
         for (Entry e : directory) {
-            e.printList(prefix + "/" + name);
+            e.printList(prefix + "/" + getName());
         }
     }
 }

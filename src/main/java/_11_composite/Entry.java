@@ -1,10 +1,17 @@
 package _11_composite;
 
+import lombok.Getter;
+
 public abstract class Entry {
+
+    @Getter
+    private String name;
 
     protected Entry parent;
 
-    public abstract String getName();
+    public Entry(String name) {
+        this.name = name;
+    }
 
     public abstract int getSize();
 

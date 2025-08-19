@@ -1,24 +1,17 @@
 package _11_composite;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class File extends Entry {
 
-    private String name;
-
+    @Getter
+    @Setter
     private int size;
 
     public File(String name, int size) {
-        this.name = name;
+        super(name);
         this.size = size;
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public int getSize() {
-        return size;
     }
 
     @Override
