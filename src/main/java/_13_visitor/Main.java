@@ -18,6 +18,7 @@ public class Main {
             root.add(usr);
             bin.add(new File("vi", 10000));
             bin.add(new File("latex", 20000));
+            tmp.add(new File("index.html", 2000));
             root.accept(new ListVisitor());
 
             System.out.println("> Making user entries");
@@ -34,10 +35,14 @@ public class Main {
             tomura.add(new File("game.doc", 400));
             tomura.add(new File("junk.mail", 500));
             root.accept(new ListVisitor());
+
+            /*
+             * Test for FileFindVisitor
+             */
+            System.out.println("> Starting finding .html files:");
+            root.accept(new FileFindVisitor(".html"));
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
 }
