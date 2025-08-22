@@ -16,7 +16,7 @@ public class PrintProxy implements Printable {
     }
 
     @Override
-    public void setPrinterName(String name) {
+    public synchronized void setPrinterName(String name) {
         if (real != null) {
             real.setPrinterName(name);
         }
