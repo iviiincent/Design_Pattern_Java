@@ -1,7 +1,7 @@
 package _21_proxy;
 
 public interface Printable {
-
+    
     void setPrinterName(String name);
 
     String getPrinterName();

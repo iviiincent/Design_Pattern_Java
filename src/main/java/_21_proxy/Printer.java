@@ -3,7 +3,7 @@ package _21_proxy;
 public class Printer implements Printable {
 
     private String name;
-
+    
     public Printer(String name) {
         heavyJob("Creating instance of Printer:");
         this.name = name;
