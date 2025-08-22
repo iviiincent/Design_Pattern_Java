@@ -4,12 +4,26 @@ public class BigString {
 
     private final BigChar[] bigChars;
 
-    public BigString(String string) {
+    public BigString(String string, boolean shared) {
         bigChars = new BigChar[string.length()];
-        BigCharFactory factory = BigCharFactory.getInstance();
+        if (shared) {
+            initShared(string);
+        } else {
+            initUnshared(string);
+        }
+    }
 
+
+    private void initShared(String string) {
+        BigCharFactory factory = BigCharFactory.getInstance();
         for (int i = 0; i < string.length(); i++) {
             bigChars[i] = factory.getBigChar(string.charAt(i));
+        }
+    }
+
+    private void initUnshared(String string) {
+        for (int i = 0; i < string.length(); i++) {
+            bigChars[i] = new BigChar(string.charAt(i));
         }
     }
 
