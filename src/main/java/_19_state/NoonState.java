@@ -23,11 +23,13 @@ public class NoonState implements State {
     @Override
     public void doUse(Context context) {
         context.callSecurityCenter("Frame has been used at noon.");
+        context.setState(UrgentState.getInstance());
     }
 
     @Override
     public void doAlarm(Context context) {
         context.callSecurityCenter("Alarm security at noon.");
+        context.setState(UrgentState.getInstance());
     }
 
     @Override

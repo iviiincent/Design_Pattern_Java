@@ -23,11 +23,13 @@ public class NightState implements State {
     @Override
     public void doUse(Context context) {
         context.callSecurityCenter("Alarm: frame is used at night.");
+        context.setState(UrgentState.getInstance());
     }
 
     @Override
     public void doAlarm(Context context) {
         context.callSecurityCenter("Alarm security at night.");
+        context.setState(UrgentState.getInstance());
     }
 
     @Override

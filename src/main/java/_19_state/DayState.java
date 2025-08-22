@@ -28,6 +28,7 @@ public class DayState implements State {
     @Override
     public void doAlarm(Context context) {
         context.callSecurityCenter("Alarm security in day time.");
+        context.setState(UrgentState.getInstance());
     }
 
     @Override
