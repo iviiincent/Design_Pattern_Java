@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Main extends JFrame implements ActionListener, MouseMotionListener, WindowListener {
+public class Main extends JFrame implements ActionListener, WindowListener {
 
     private final MacroCommand history = new MacroCommand();
 
@@ -28,7 +28,18 @@ public class Main extends JFrame implements ActionListener, MouseMotionListener,
         super(title);
 
         addWindowListener(this);
-        canvas.addMouseMotionListener(this);
+        canvas.addMouseMotionListener(new MouseMotionListener() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                Command command = new DrawCommand(canvas, e.getPoint());
+                history.append(command);
+                command.execute();
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent e) {
+            }
+        });
         clearButton.addActionListener(this);
         redButton.addActionListener(this);
         greenButton.addActionListener(this);
@@ -60,7 +71,7 @@ public class Main extends JFrame implements ActionListener, MouseMotionListener,
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        
+
         if (source == clearButton) {
             history.clear();
             canvas.repaint();
@@ -80,36 +91,6 @@ public class Main extends JFrame implements ActionListener, MouseMotionListener,
             history.undo();
             canvas.repaint();
         }
-    }
-
-    /**
-     * Invoked when a mouse button is pressed on a component and then
-     * dragged.  {@code MOUSE_DRAGGED} events will continue to be
-     * delivered to the component where the drag originated until the
-     * mouse button is released (regardless of whether the mouse position
-     * is within the bounds of the component).
-     * <p>
-     * Due to platform-dependent Drag&amp;Drop implementations,
-     * {@code MOUSE_DRAGGED} events may not be delivered during a native
-     * Drag&amp;Drop operation.
-     *
-     * @param e the event to be processed
-     */
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        DrawCommand command = new DrawCommand(canvas, e.getPoint());
-        history.append(command);
-        command.execute();
-    }
-
-    /**
-     * Invoked when the mouse cursor has been moved onto a component
-     * but no buttons have been pushed.
-     *
-     * @param e the event to be processed
-     */
-    @Override
-    public void mouseMoved(MouseEvent e) {
     }
 
     /**
