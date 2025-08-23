@@ -22,6 +22,8 @@ public class Main extends JFrame implements ActionListener, MouseMotionListener,
     private final JButton greenButton = new JButton("green");
     private final JButton blueButton = new JButton("blue");
 
+    private final JButton undoButton = new JButton("undo");
+
     public Main(String title) {
         super(title);
 
@@ -31,12 +33,14 @@ public class Main extends JFrame implements ActionListener, MouseMotionListener,
         redButton.addActionListener(this);
         greenButton.addActionListener(this);
         blueButton.addActionListener(this);
+        undoButton.addActionListener(this);
 
         Box buttonBox = new Box(BoxLayout.X_AXIS);
         buttonBox.add(clearButton);
         buttonBox.add(redButton);
         buttonBox.add(greenButton);
         buttonBox.add(blueButton);
+        buttonBox.add(undoButton);
 
         Box mainBox = new Box(BoxLayout.Y_AXIS);
         mainBox.add(buttonBox);
@@ -55,21 +59,26 @@ public class Main extends JFrame implements ActionListener, MouseMotionListener,
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == clearButton) {
+        Object source = e.getSource();
+        
+        if (source == clearButton) {
             history.clear();
             canvas.repaint();
-        } else if (e.getSource() == redButton) {
+        } else if (source == redButton) {
             Command command = new ColorCommand(canvas, Color.red);
             history.append(command);
             command.execute();
-        } else if (e.getSource() == greenButton) {
+        } else if (source == greenButton) {
             Command command = new ColorCommand(canvas, Color.green);
             history.append(command);
             command.execute();
-        } else if (e.getSource() == blueButton) {
+        } else if (source == blueButton) {
             Command command = new ColorCommand(canvas, Color.blue);
             history.append(command);
             command.execute();
+        } else if (source == undoButton) {
+            history.undo();
+            canvas.repaint();
         }
     }
 

@@ -27,7 +27,6 @@ public class DrawCanvas extends Canvas implements Drawable {
     public void draw(int x, int y) {
         Graphics graphics = getGraphics();
         graphics.setColor(color);
-        int radius = 6;
         graphics.fillOval(x - radius, y - radius, radius * 2, radius * 2);
     }
 
